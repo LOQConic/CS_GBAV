@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoBeAVolunteer App Redesign</title>
+  <style>
+    /* Basic CSS styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+    nav {
+      background-color: #f8f9fa;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    .button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+    .card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>GoBeAVolunteer</h1>
+    <!-- GoBeAVolunteer logo -->
+    <!-- You can insert an image of the logo here -->
+  </header>
+
+  <nav>
+    <!-- Navigation menu icon -->
+    <button class="button" onclick="toggleMenu()">Menu</button>
+    <!-- Menu items -->
+    <div id="menu" style="display: none;">
+      <button class="button" onclick="showHome()">Home</button>
+      <button class="button" onclick="showOpportunityDetails()">Opportunity Details</button>
+      <button class="button" onclick="showCalendarIntegration()">Calendar Integration</button>
+      <button class="button" onclick="showDirections()">Directions</button>
+    </div>
+  </nav>
+
+  <div id="home" class="container">
+    <h2>Home Screen</h2>
+    <!-- Search bar -->
+    <input type="text" placeholder="Search for volunteer opportunities">
+    <!-- Nearby Volunteer Opportunities section with map integration -->
+    <div class="card">
+      <h3>Nearby Volunteer Opportunities</h3>
+      <!-- Map integration will be added dynamically -->
+      <div id="map" style="height: 200px;">Map will be displayed here</div>
+    </div>
+    <!-- List of volunteer opportunities -->
+    <div class="card">
+      <h3>Volunteer Opportunities</h3>
+      <ul>
+        <li onclick="showOpportunityDetails()">Help at Local Food Bank</li>
+        <li onclick="showOpportunityDetails()">Assist Elderly with Grocery Shopping</li>
+        <!-- Add more volunteer opportunities as needed -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- Volunteer Opportunity Details Screen -->
+  <div id="opportunityDetails" class="container" style="display: none;">
+    <h2>Volunteer Opportunity Details</h2>
+    <!-- Volunteer opportunity details -->
+    <p><strong>Name:</strong> Help at Local Food Bank</p>
+    <p><strong>Date:</strong> March 5, 2024</p>
+    <p><strong>Time:</strong> 9:00 AM - 12:00 PM</p>
+    <p><strong>Description:</strong> Volunteers are needed to assist with sorting and distributing food items at the local food bank. It's a great opportunity to make a direct impact on combating hunger in our community.</p>
+    <!-- Save to Calendar button -->
+    <button class="button">Save to Calendar</button>
+    <!-- Back button -->
+    <button class="button" onclick="showHome()">Back</button>
+  </div>
+
+  <!-- Calendar Integration Screen -->
+  <div id="calendarIntegration" class="container" style="display: none;">
+    <h2>Calendar Integration</h2>
+    <!-- Calendar view displaying the saved volunteer commitment -->
+    <!-- Calendar view will be added dynamically -->
+    <!-- Edit option for the commitment -->
+    <button class="button">Edit</button>
+    <!-- Back button -->
+    <button class="button" onclick="showHome()">Back</button>
+  </div>
+
+  <!-- Directions Screen -->
+  <div id="directions" class="container" style="display: none;">
+    <h2>Directions</h2>
+    <!-- Directions to the selected volunteer opportunity location (driving or walking) -->
+    <!-- Directions will be added dynamically -->
+    <!-- Back button -->
+    <button class="button" onclick="showHome()">Back</button>
+  </div>
+
+  <footer>
+    <!-- Footer content -->
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("menu");
+      if (menu.style.display === "none") {
+        menu.style.display = "block";
+      } else {
+        menu.style.display = "none";
+      }
+    }
+
+    function showHome() {
+      document.getElementById("home").style.display = "block";
+      document.getElementById("opportunityDetails").style.display = "none";
+      document.getElementById("calendarIntegration").style.display = "none";
+      document.getElementById("directions").style.display = "none";
+    }
+
+    function showOpportunityDetails() {
+      document.getElementById("home").style.display = "none";
+      document.getElementById("opportunityDetails").style.display = "block";
+      document.getElementById("calendarIntegration").style.display = "none";
+      document.getElementById("directions").style.display = "none";
+    }
+
+    function showCalendarIntegration() {
+      document.getElementById("home").style.display = "none";
+      document.getElementById("opportunityDetails").style.display = "none";
+      document.getElementById("calendarIntegration").style.display = "block";
+      document.getElementById("directions").style.display = "none";
+    }
+
+    function showDirections() {
+      document.getElementById("home").style.display = "none";
+      document.getElementById("opportunityDetails").style.display = "none";
+      document.getElementById("calendarIntegration").style.display = "none";
+      document.getElementById("directions").style.display = "block";
+    }
+  </script>
+</body>
+</html>
